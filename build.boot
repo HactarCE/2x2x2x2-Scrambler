@@ -27,3 +27,10 @@
    (cljs-repl)
    (cljs)
    (target :dir #{"target"})))
+
+(deftask build
+  "Deploy to GitHub Pages."
+  []
+  (comp
+    (cljs :optimizations :advanced)
+    (target :dir #{"target"})))
