@@ -1,0 +1,2 @@
+{:require [scrambler.core]
+ :compiler-options {:asset-path "js/main.out"}}
