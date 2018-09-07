@@ -9,7 +9,6 @@
 (defn init! []
   (r/render-component
     (fn [] [main-ui])
-    (.getElementById js/document "app"))
-  (println "reloaded"))
+    (.getElementById js/document "app")))
 
 (init!)

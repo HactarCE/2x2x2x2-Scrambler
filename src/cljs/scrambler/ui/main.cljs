@@ -1,16 +1,12 @@
 (ns scrambler.ui.main
   (:require [reagent.core :refer [atom]]
             [scrambler.ui.flat-view :as flat-view]
+            [scrambler.puzzle.core :as puzzle-core]
             [scrambler.puzzle.state-generator :as state-generator]))
 
-(def puzzle-state (atom state-generator/solved-puzzle))
+(def puzzle-state (atom puzzle-core/solved-puzzle))
 
 (defn scramble [puzzle] (state-generator/get-scrambled-puzzle))
-; (defn scramble [puzzle]
-;   (-> puzzle
-;       (state-generator/twist-corner 0 1)
-;       (#(do (println (state-generator/get-corner-twist-sum %)) %))))
-;       (state-generator/twist-corner 7 -1))
 
 (defn main-ui []
   [:center
@@ -20,4 +16,3 @@
               :on-click #(swap! puzzle-state scramble)}
      "New scramble"]]
    [flat-view/render-puzzle @puzzle-state]])
-   ; [flat-view/render-puzzle (state-generator/get-scrambled-puzzle)]])
