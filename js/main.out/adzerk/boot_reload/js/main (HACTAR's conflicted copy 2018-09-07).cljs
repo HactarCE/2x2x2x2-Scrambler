@@ -1,0 +1,2 @@
+(ns adzerk.boot-reload.js.main (:require [adzerk.boot-reload.client :as client] scrambler.core))
+(client/connect "ws://localhost:46543" {:ws-host nil, :asset-host nil, :on-jsload (fn* [] (scrambler.core/init!))})
