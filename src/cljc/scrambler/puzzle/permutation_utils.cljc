@@ -26,7 +26,7 @@
                      (- parity))))))
 
 (defn cycle-keys
-  "Cycle keys in a map."
+  "Cycle keys in an associative data structure."
   [m keys]
   (reduce
     (fn [m [k1 k2]] (swap-indices m k1 k2))
