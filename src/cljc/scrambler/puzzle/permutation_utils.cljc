@@ -38,3 +38,15 @@
     (if (neg? (get-permutation-parity permutation))
       (swap-indices permutation 0 1) ; If there's odd parity, swap two pieces to fix it.
       permutation)))
+
+(defn apply-permutation [perm1 perm2]
+  "Reorder the first vector according to the second."
+  (mapv #(get perm1 %) perm2))
+
+(defn inverse-permutation [permutation]
+  (reduce-kv (fn [new-permutation destination source]
+               (assoc new-permutation source destination))
+             ;; It doesn't actually matter what vector we start with, as long
+             ;; as it's the same length as the permutation.
+             permutation
+             permutation))

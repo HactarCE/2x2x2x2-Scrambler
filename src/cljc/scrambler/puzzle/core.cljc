@@ -17,24 +17,18 @@
   axes are permuted. For example [2 1 3 0] describes a cycle of the zeroth,
   third, and second axes (with the first axis fixed).
 
-  0: w/y (white/yellow)
-  1: r/o (red/orange)
-  2: b/g (blue/green)
-  3: v/m (violet/magenta = purple/pink)
-
-  This format is identical to pentaquark394's, except that all four corner axes
-  stickers are included in the orientation description. They are, in order:
-  W - 'inside' front
-  Y - 'outside' back if positive handedness; 'inside' back if negative
-  Z - 'outside' front
-  X - 'inside' back if positive handedness; 'outside' back if negative"
+  0: X, r/o (red/orange)
+  1: Y, b/g (blue/green)
+  2: Z, w/y (white/yellow)
+  3: W, v/m (violet/magenta = purple/pink)"
   {:p (vec (range 16))
-   :o (vec (repeat 16 [0 1 2 3]))})
+   :o (vec (repeat 16 [0 1 2 3]))
+   :inverted false})
 
 (def sticker-chars
   "A vector of vectors, mapping an axis (0-3) and a value along that axis (0-1)
   to a single character representing a sticker color."
-  [[\w \y] [\r \o] [\b \g] [\v \m]])
+  [[\o \r] [\y \w] [\g \b] [\m \v]])
 
 
 (defn get-piece-axis-value

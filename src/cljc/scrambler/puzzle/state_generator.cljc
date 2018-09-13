@@ -60,7 +60,8 @@
                (perm-utils/even-parity-shuffle))
        :o (->> (:o puzzle-core/solved-puzzle)
                ;; Randomly orient each piece.
-               (mapv perm-utils/even-parity-shuffle))}
+               (mapv perm-utils/even-parity-shuffle))
+       :inverted? false}
       ;; Fix orientation (corner twist) parity.
       (resolve-corner-twist)
       ;; Resolve piece handedness. (See the resolve-handedness docstring.)
